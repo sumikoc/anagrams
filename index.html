@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- use a viewport instead of shrinking page on mobile; use proper fonts and breakpoints -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- This pulls bootstrap from a CDN instead of a locally installed version -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+
+    <!-- Optional theme - this will have gradients, if you want flatter, remove -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r"
+          crossorigin="anonymous">
+
+    <!-- put my style tags here so that they overwrite bootstrap, if necessary -->
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Anagram I Am??</title>
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1>Anagram am I?</h1>
+        <p>an*a*gram (n.) a word of phrase formed by rearranging the letters of another word or phrase</p>
+    </div>
+</div>
+
+<script>
+    function evaluateInput() {
+        clearStatus();
+        if (validateForm()) {
+            document.getElementById("header_weAre").style.visibility = "visible";
+        } else {
+            document.getElementById("header_weAreNot").style.visibility = "visible";
+        }
+    }
+
+    function clearStatus() {
+        document.getElementById("header_weAre").style.visibility = "hidden";
+        document.getElementById("header_weAreNot").style.visibility = "hidden";
+
+    }
+
+    function lookForReturns(event) {
+        if (event.which == 13 || event.keyCode == 13) {
+            var string1 = document.forms["anagramCandidates"]["string1"].value;
+            var string2 = document.forms["anagramCandidates"]["string2"].value;
+            if (!string1 || !string2) {
+                return true;
+            }
+            evaluateInput();
+            return false;
+        }
+        return true;
+    };
+
+</script>
+
+<div class="container-fluid">
+
+    <form name="anagramCandidates" onchange="clearStatus()">
+        <div class="form-group">
+            <label for="string1">First Word or Phrase:</label>
+            <input type="text" class="form-control" id="string1" placeholder="Enter some letters. ex. 'punishment'" onkeyup="lookForReturns(event)">
+        </div>
+        <div class="form-group">
+            <label for="string2">Second Word or Phrase:</label>
+            <input type="text" class="form-control" id="string2" placeholder="Enter some letters. ex. 'nine thumps'" onkeyup="lookForReturns(event)">
+        </div>
+
+        <button type="button" class="btn btn-primary active" onClick="evaluateInput()">Check Us!</button>
+    </form>
+
+    <p id="header_weAre" class="text-success" style="visibility:hidden">We Are Anagrams!!! :)</p>
+    <p id="header_weAreNot" class="text-danger" style="visibility:hidden">Nope, We are Not Anagrams. :(</p>
+
+</div>
+
+
+
+<!-- This should go in the footer for a bootstrap template
+bootstrap requires jquery. This gets jquery from a CDN.
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous">
+</script>
+
+<!-- My javascript is here -->
+
+<script src="./anagramArray.js"></script>
+
+
+</body>
+
+</HTML>

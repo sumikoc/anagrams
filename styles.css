@@ -1,0 +1,68 @@
+<!-- styles.css -->
+
+body {
+
+}
+
+h1{
+    color:navy;
+}
+
+.bg-grey {
+    background-color: #F6F6F6;
+}
+
+.jumbotron {
+    background-color: navy; /* navy */
+    color: #ffffff;
+    /* padding: 75px 5px; */
+}
+
+.container-fluid {
+    /* padding: 40px 20px 5px; */
+    /* T RL B */
+}
+
+.logo {
+    color: navy;
+    font-size: 150px;
+}
+
+.logo-sm {
+    color: white;
+    font-size: 25px;
+}
+
+@media screen and (max-width: 768px) {
+    .col-sm-3 {
+        text-align: center;
+        margin: 25px 0;
+    }
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: navy;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+
+.navbar li a, .navbar .navbar-brand {
+    color: #ffffff !important;
+}
+
+/* color of mouse over menus */
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: white !important;
+    background-color: #111111 !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #ffffff !important;
+}
+
